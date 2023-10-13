@@ -9,7 +9,6 @@ const path :PlatformPath = require('path');
 const logger = morgan;
 
 const indexRouter = require('./routes');
-const usersRouter = require('./routes/users');
 
 const app: Express = express();
 
