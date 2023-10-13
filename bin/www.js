@@ -1,20 +1,16 @@
-import { Express } from 'express';
-import { Debug } from 'debug';
-import * as http from 'http';
-import { AddressInfo } from 'net';
-
+const http = require('http')
 /**
  * Module dependencies.
  */
 
-const app: Express = require('../app');
-let debug: Debug = require('debug')('todo:server');
+const app = require('../app');
+let debug = require('debug')('todo:server');
 
 /**
  * Get port from environment and store in Express.
  */
 
-let port: string | number | boolean = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -35,7 +31,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val: string) {
+function normalizePort(val) {
   let port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -55,7 +51,7 @@ function normalizePort(val: string) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error: NodeJS.ErrnoException): void {
+function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -83,9 +79,9 @@ function onError(error: NodeJS.ErrnoException): void {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening(): void {
-  let addr: AddressInfo | string | null = server.address();
-  let bind: string = typeof addr === 'string'
+function onListening() {
+  let addr = server.address();
+  let bind = typeof addr === 'string'
       ? 'pipe ' + addr
       : 'port ' + addr?.port;
   debug('Listening on ' + bind);

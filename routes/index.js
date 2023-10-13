@@ -1,7 +1,7 @@
-import express, { Router } from 'express';
-import { AuthController } from '../app/http/controller/AuthController';
+const express = require('express');
+const AuthController =  require('../app/http/controller/AuthController');
 
-const router :Router = express.Router();
+const router = express.Router();
 
 router.get('/signup', new AuthController().signup)
 router.get('/login', new AuthController().login);
