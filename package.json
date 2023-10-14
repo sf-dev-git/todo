@@ -4,8 +4,6 @@
   "private": true,
   "scripts": {
     "setup": "npm i && npm run dev",
-    "build": "npx tailwindcss -i ./public/stylesheets/style.css -o ./public/stylesheets/main.css",
-    "dev": "concurrently \" npx tailwindcss -i ./public/stylesheets/style.css -o ./public/stylesheets/main.css --watch \" \"nodemon -q bin/www\"",
     "start": "node ./bin/www"
   },
   "dependencies": {
