@@ -1,29 +1,24 @@
 extends ../global/layout
 
 block content
-    div(class='flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8')
-        div(class='sm:mx-auto sm:w-full sm:max-w-sm')
-            h2(class='mt-10 text-center text-2xl font-bold leading-9 tracking-tight')
-                | Signup
-        div(class='mt-10 sm:mx-auto sm:w-full sm:max-w-sm')
-            form(class='space-y-6', action='signup' metohd='POST')
+    div
+        h2
+            | Signup
+        p  #{wow}
+        div
+            form(action='/signup' method='POST')
                 div
-                    label(for='email' class='label')
-                        label(class='label-text') Email Address
-                    div(class='mt-2')
-                        input(id='email', name='email', type='email' autocomplete='email' required
-                        class='input input-bordered input-primary w-full')
-                div
-                    label(for='password' class='label')
-                        label(class='label-text') Password
-                    div(class='mt-2')
-                        input(id='password', name='password', type='password' autocomplete='current-password' required
-                        class='input input-bordered input-primary w-full')
-                div
-                    label(for='confirm-password' class='label')
-                        label(class='label-text') Confirm password
-                    div(class='mt-2')
-                        input(id='confirm-password', name='confirm-password', type='password' autocomplete='current-password' required
-                        class='input input-bordered input-primary w-full')
-                div
-                    button(class='btn w-full', type='submit') Signup
+                    div
+                        label(for='email') Email Address
+                        div(class='mt-2')
+                            input(name='email', type='email' autocomplete='email' required)
+                    div
+                        label(for='password') Password
+                        div(class='mt-2')
+                            input(name='password', type='password' autocomplete='current-password' required)
+                    div
+                        label(for='confirmPassword') Confirm Password
+                        div(class='mt-2')
+                            input(name='confirmPassword', type='password' autocomplete='current-password' required)
+                    div
+                        button(type='submit') signup
