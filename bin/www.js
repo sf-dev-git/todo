@@ -1,4 +1,6 @@
+require('dotenv').config();
 const http = require('http')
+
 /**
  * Module dependencies.
  */
@@ -9,8 +11,7 @@ let debug = require('debug')('todo:server');
 /**
  * Get port from environment and store in Express.
  */
-
-let port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT);
 app.set('port', port);
 
 /**

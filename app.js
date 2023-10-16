@@ -3,9 +3,25 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const path = require('path');
-const logger = morgan;
 const indexRouter = require('./routes/index.js');
+const livereload = require('livereload');
+const connectLiveReload = require('connect-livereload');
+
+const logger = morgan;
 const app = express();
+
+// development setup
+const env = process.env.NODE_ENV || "development";
+
+if (env === "development") {
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+  app.use(connectLiveReload());
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
